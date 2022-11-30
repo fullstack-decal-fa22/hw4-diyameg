@@ -8,16 +8,20 @@ const Feed = () => {
     // Refer to Hint 2 for more help!
 
     /* Use the map() function to render multiple Blocks! */
-    const posts = null; // TODO: edit this variable
+    const [posts, setPosts] = useState([]);
+    
+    const createPost = (postColor) => {
+    setPosts([<Block color={postColor}></Block>, ...posts]);
+    console.log("CreatePost called with post color: ", postColor);
+    console.log("There are ", posts.length, " posts.");
+    };
 
     return (
         <div>
-            <Menu></Menu>
-
-            {/* Below is where all of your Blocks should render! */}
+            <Menu click={createPost}></Menu>
             {posts}
         </div>
-    );
-}
+  );
+};
 
 export default Feed;
